@@ -1,0 +1,10 @@
+.meanings {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+
+    h2 {
+        font-size: 4vw;
+        font-weight: 100;
+    }
+}
