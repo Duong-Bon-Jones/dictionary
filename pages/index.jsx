@@ -19,6 +19,7 @@ export default function Home() {
     const [meanings, setMeanings] = useState([]);
     const [word, setWord] = useState("");
     const [selectedLanguage, setSelectedLanguage] = useState("en");
+    const [audio, setAudio] = useState([]);
 
     const handleLanguageChange = (e) => {
         setSelectedLanguage(e.target.value);
@@ -31,7 +32,8 @@ export default function Home() {
                 const { data } = await axios.get(
                     `https://api.dictionaryapi.dev/api/v2/entries/${selectedLanguage}/${word}`
                 );
-                setMeanings(data[0].meanings);
+                setMeanings(data);
+                setAudio(data[0].phonetics[0]);
             }
         } catch (ex) {
             console.log(ex);
@@ -58,7 +60,14 @@ export default function Home() {
                         searchWord={word}
                         setWord={setWord}
                     />
-                    {meanings && <Definition meanings={meanings} word={word} />}
+                    {meanings && (
+                        <Definition
+                            meanings={meanings}
+                            word={word}
+                            selectedLanguage={selectedLanguage}
+                            audio={audio}
+                        />
+                    )}
                 </Container>
             </div>
         </ThemeProvider>
