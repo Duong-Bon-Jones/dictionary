@@ -1,9 +1,13 @@
 module.exports = {
     reactStrictMode: true,
 };
-const withOffline = require("next-offline");
 
-// your next.js configs
-const nextConfig = {};
+const withPWA = require("next-pwa");
 
-module.exports = withOffline(nextConfig);
+module.exports = withPWA({
+    pwa: {
+        dest: "public",
+        register: true,
+        skipWaiting: true,
+    },
+});

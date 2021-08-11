@@ -81,6 +81,7 @@ export default function Home() {
                     rel="apple-touch-icon"
                     href="./public/apple-touch-icon.png"
                 />
+                <meta name="theme-color" content="#fff" />
             </Head>
             <div
                 className={`${styles.main} ${
