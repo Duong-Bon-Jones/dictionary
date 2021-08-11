@@ -8,7 +8,7 @@ import Definition from "../components/Definition";
 import Switch from "@material-ui/core/Switch";
 import { withStyles } from "@material-ui/core/styles";
 import { grey } from "@material-ui/core/colors";
-
+import Head from "next/head";
 export default function Home() {
     const [meanings, setMeanings] = useState([]);
     const [word, setWord] = useState("");
@@ -70,6 +70,18 @@ export default function Home() {
 
     return (
         <ThemeProvider theme={darkTheme}>
+            <Head>
+                <title>Dictionary</title>
+                <meta
+                    name="viewport"
+                    content="initial-scale=1.0, width=device-width"
+                />
+                <link rel="manifest" href="/manifest.json" />
+                <link
+                    rel="apple-touch-icon"
+                    href="./public/apple-touch-icon.png"
+                />
+            </Head>
             <div
                 className={`${styles.main} ${
                     lightMode ? styles.light : styles.dark
